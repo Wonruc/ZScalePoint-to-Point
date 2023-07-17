@@ -18,4 +18,4 @@ If you would like to build your own you will need:
 
 * Various wires to connect it all. Give strong consideration to a servo wire/jst crimp kit where you can make your own 3 pin wires.
 
-The code currently have alot of commented out code for various uses.  I may split this off soon into several variants that would just work without editing.  
+The code currently has alot of commented out code for various uses.  I may split this off soon into several variants that would just work without editing.  
