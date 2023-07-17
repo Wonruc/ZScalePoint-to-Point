@@ -21,7 +21,7 @@
 //  for speed control.  When a train enters a station, the IR sensor is triggered, the train slows to a stop, waits for a 
 //  defined interval, the polarity of the track may be changed as needed to send the train to the next station, and the train 
 //  is set to accelerate out of the station.  This code includes short protection. The constants used to identify over
-//  current, start speed, acceleraation and deceleration  were established using 3V Rokuhan Shorty Z scale trains for the 
+//  current, start speed, acceleration and deceleration  were established using 3V Rokuhan Shorty Z scale trains for the 
 //  Showcase Miniatures trolley and may need to be adjusted for larger trains at higher voltages. If a train fails to arrive at
 //  a station after one minute, a stall is assumed and track power is turned off.  Faults can be cleared by triggering any
 //  station IR sensor.
