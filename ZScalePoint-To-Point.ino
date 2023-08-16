@@ -221,9 +221,9 @@ void setup() {
   pinMode(2,OUTPUT);                      //Vibrate Motor.
   pinMode(3,OUTPUT);                      //Motor Shield PWM A - Speed pin.
   pinMode(4,INPUT);                      //Station C Sensor
-  pinMode(5,INPUT);                      //Station C Sensor 
-  pinMode(6,INPUT);                      //Station C Sensor
-  pinMode(7,INPUT);                      //Station C Sensor
+  pinMode(5,INPUT);                      //Station A Sensor 
+  pinMode(6,INPUT);                      //Station B Sensor
+  pinMode(7,INPUT);                      //Station D Sensor
   pinMode(8,OUTPUT);                    //Motor Shield Channel B Brake: Power on/off. 
   pinMode(9,OUTPUT);                      //Motor Shield Brake A - track power on/off.
   pinMode(10,OUTPUT);                      //Fault Light
@@ -467,7 +467,7 @@ void loop() {
   } 
   //=========================
 
-  // This code prints key values to the serial monitor for debugging at the SERIALREFRESH interval.
+  // This code prints speed and current to the OLED display at the DISPLAYREFRESH interval.
   if (millis() - DisplayMillis >= DISPLAYREFRESH) {
     DisplayMillis = millis();  //Saves the last time serial monitor was updated.
     OledUpdate();
@@ -620,6 +620,9 @@ void OledUpdate() {
   } else if(Depart == 2){
       display.drawBitmap(79,0,Trolley,32,8,WHITE);
       display.drawBitmap(111,0,Station,16,8,WHITE);
+  } else if(Depart >= 3){
+      display.drawBitmap(47,0,Trolley,32,8,WHITE);
+      display.drawBitmap(81,0,Station,16,8,WHITE);
   } else if(Depart == 0 && Direction == 0){
       display.setTextSize(1);      // text size
       display.setTextColor(WHITE); // text color
