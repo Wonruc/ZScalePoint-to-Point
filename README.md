@@ -16,8 +16,6 @@ If you would like to build your own you will need:
 
 * A 10 ohm potentiometer
 
-* A 470 ohm resistor
-
 * Various wires to connect it all. Give strong consideration to a servo wire/jst crimp kit where you can make your own 3 pin wires.
 
 There are also some optional parts you may want to consider.
