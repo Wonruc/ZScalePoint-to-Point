@@ -2,7 +2,7 @@
 //
 //                                            Copyright 2023 Matthew Curnow
 //                            
-//                                                  Updated 14-Aug-2023
+//                                                  Updated 16-Oct-2023
 //
 //  This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License
 //  as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
@@ -80,8 +80,8 @@ const int NUMBEROFSTATIONS = 2;           // Range of 1 to 4.
 //  D5 Station A 
 //  D6 Station B (Optional)
 //  D7 Station D (Optional)
-//  D8 Motor Shield Channel B Break (Turnout - Optional)
-//  D9 Motor Shield Channel A Break
+//  D8 Motor Shield Channel B Brake (Turnout - Optional)
+//  D9 Motor Shield Channel A Brake
 //  D10 Fault Light (Optional)
 //  D11 Motor Shield Channel B PWM (Tunrout - Optional)
 //  D12 Motor Shield Channel A Direction
@@ -146,7 +146,7 @@ const int STARTSPEED =10;                 // Min PWM start speed. To adjust, set
 const int POTMAX = 1020;                  // Maximum mv of the potentiometer for max voltage to tracks
 const int POTMIN = 50;                    // Minimum mv of the potentiometer for 0 volts to tracks
 const int ACCELTIME= 1000;                // Acceleration Time in ms. 
-const int BREAKTIME = 300;                // Breaking Time in ms. 
+const int BRAKETIME = 300;                // Braking Time in ms. 
 
 unsigned long CurrentRefreshMillis = 0;   // Will store last time current values were updated.
 unsigned long SensorMillis = 0;           // Will store last time speed sensor values were updated.
@@ -235,7 +235,7 @@ void setup() {
   // ****** Warning ******
   // The included turnout code has over current protection, however you should test turnouts cautiously. It is set to a 5 ms pulse. The turnouts will need a 12 volt VIN. 
   // The higher voltage will require a 330 Ohm resistor inline to the track to reduce the voltage for Rokuhan Shorty locomotives.   
-  // I had a loose header connection where the break command did not send and it melted the turnout, so I added the overcurrent protection.
+  // I had a loose header connection where the brake command did not send and it melted the turnout, so I added the overcurrent protection.
   // Use at your own risk.  Test proper function by observing the motor shield LEDs before connecting the turnout. The channel B LEDs should only flash for a moment. The current sense takes 500 to 1000 ms to trip the over protection.     
 
   //Track power is default on. To default off, enable this code. Trigger start with a station IR sensor.  
@@ -598,7 +598,7 @@ void RateChange() {
    }
 
    else if(TargetSpeed < Speed){
-      Accel = BREAKTIME / (Speed - TargetSpeed);
+      Accel = BRAKETIME / (Speed - TargetSpeed);
    }
    //This should only occur if you adjust the speed to 0 and trigger a station manually.
    else if(Speed == TargetSpeed){
